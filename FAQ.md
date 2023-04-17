@@ -2,7 +2,7 @@
 
 Abaixo estão algumas orientações e dúvidas comuns ao desenvolvimento do projeto.
 
-Se houver qualquer outra dúvida ou problema, é só procurar a monitoria ou postar uma thread no slack. Estamos juntos 👍
+Se houver qualquer outra dúvida ou problema, é só procurar a monitoria ou postar uma thread no slack. Estamos juntos! 👍
 
 ## Git e GitHub
 
