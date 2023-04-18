@@ -66,4 +66,22 @@ router.post('/', auth,
     res.status(201).json(talker);
 });
 
+router.put('/:id', auth,
+    nameValidate,
+    ageValidate,
+    talkValidate,
+    watchedAtValidate,
+    rateValidate, async (req, res) => {
+    const id = Number(req.params.id);
+    const peopleResult = await viewJson();
+    const talker = peopleResult.find((talk) => talk.id === id);
+    if (!talker) {
+      return res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
+    }
+    const index = peopleResult.findIndex((people) => people.id === id);
+    peopleResult[index] = { id, ...req.body };
+    await writeArchive(peopleResult);
+    res.status(200).json(peopleResult[index]);
+});
+
 module.exports = router;
