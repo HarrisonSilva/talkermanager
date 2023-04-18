@@ -84,4 +84,12 @@ router.put('/:id', auth,
     res.status(200).json(peopleResult[index]);
 });
 
+router.delete('/:id', auth, async (req, res) => {
+    const id = Number(req.params.id);
+    const peopleResult = await viewJson();
+    const newList = peopleResult.filter((people) => people.id !== id);
+    await writeArchive(newList);
+    return res.sendStatus(204);
+});
+
 module.exports = router;
