@@ -1,6 +1,14 @@
 const express = require('express');
 const fs = require('fs').promises;
 const path = require('path');
+const auth = require('../middlewares/authorization');
+const {
+    nameValidate,
+    ageValidate,
+    talkValidate,
+    watchedAtValidate,
+    rateValidate,
+} = require('../middlewares/talkerValidate');
 
 const router = express.Router();
 
@@ -14,6 +22,10 @@ const viewJson = async () => {
         console.log(error);
     }
 };
+
+    const writeArchive = async (list) => {
+        await fs.writeFile(pathJson, JSON.stringify(list), { encoding: 'utf8' });
+    };
 
 router.get('/', async (req, res) => {
     try {
@@ -39,6 +51,19 @@ router.get('/:id', async (req, res) => {
     } catch (error) {
         console.log(error);
     }
+});
+
+router.post('/', auth,
+    nameValidate,
+    ageValidate,
+    talkValidate,
+    watchedAtValidate,
+    rateValidate, async (req, res) => {
+    const filds = req.body;
+    const people = await viewJson();
+    const talker = { id: people.length + 1, ...filds };
+    await writeArchive([...people, talker]);
+    res.status(201).json(talker);
 });
 
 module.exports = router;
