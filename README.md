@@ -1,10 +1,2 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Talker Manager
+O projeto consiste na criação de uma aplicação para cadastro de palestrantes, com uma API que oferece operações básicas de cadastro, leitura, atualização e exclusão (CRUD). Além disso, a aplicação incluirá endpoints que utilizam o módulo fs para interagir com um arquivo, permitindo a persistência de dados dos palestrantes. Em resumo, a solução visa possibilitar o gerenciamento eficiente de informações sobre palestrantes, com funcionalidades completas de manipulação de dados.
